@@ -8,21 +8,35 @@ workon myvenv
 
 
 
+
+
++ for trainning
+
+```shell
+python train.py --cfg ./cfg/yolov3-binary.cfg --device 2 --data ./images/data_input.data --epoch 300 --weights ./weights/yolov3.pt --batch-size 8
+```
+
+
+
 + for detecting
 
 ```shell
-python detect.py --source ./images --cfg ./cfg/yolov3-binary.cfg --weights ./weights/best.pt --names data/data_input.names
+python detect.py --source ./images --cfg ./cfg/yolov3-binary.cfg --weights ./weights/best.pt --names images/data_input.names
 ```
 
 
 
-```bash
-python3 detect.py --source ...
++ for deploying rstp
+
+```shell
+python detect.py --cfg ./cfg/yolov3-binary.cfg --weights ./weights/best.pt --names images/data_input.names --source rtsp://admin:passcode@192.168.1.108:554
 ```
 
-- Image:  `--source file.jpg`
-- Video:  `--source file.mp4`
-- Directory:  `--source dir/`
-- Webcam:  `--source 0`
-- RTSP stream:  `--source rtsp://170.93.143.139/rtplive/470011e600ef003a004ee33696235daa`
-- HTTP stream:  `--source http://112.50.243.8/PLTV/88888888/224/3221225900/1.m3u8`
+
+
++ for tensorboardX
+
+```shell
+tensorboard --logdir=runs
+```
+
